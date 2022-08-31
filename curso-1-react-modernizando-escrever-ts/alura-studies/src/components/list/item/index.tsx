@@ -1,6 +1,7 @@
+import ITask from '../../../types/Task'
 import style from '../list.module.scss'
 
-export default function Item({ name, time }: { name: string, time: string }) {
+export default function Item({ name, time, selected, completed, id }: ITask) {
     return (
         <li className={style.item}>
             <h3>
