@@ -25,7 +25,7 @@ function App() {
       <List
         tasks={tasks}
         selectTask={selectTask} />
-      <Cronometer />
+      <Cronometer selected={selected}/>
     </div>
   );
 }
