@@ -5,3 +5,7 @@ export function timeToSecs(time: string) {
     const minsInSecs = Number(mins) * 60;
     return hoursInSecs + minsInSecs + Number(secs);
 }
+
+export function secsToMins(secs: number) {
+    
+}
