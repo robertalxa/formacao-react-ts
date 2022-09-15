@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import style from './botao.module.scss';
 
-class Button extends Component<{ texto: string, type?: "button" | "submit" | "reset" | undefined }> {
+class Button extends Component<{ texto: string, type?: "button" | "submit" | "reset" | undefined, onClick?: ()=> void }> {
     render() {
-        const { texto, type = 'button' } = this.props;
+        const { texto, type = 'button', onClick } = this.props;
         return (
-            <button className={style.botao} type={type}>
+            <button onClick={onClick} className={style.botao} type={type}>
                 {texto}
             </button>
         )

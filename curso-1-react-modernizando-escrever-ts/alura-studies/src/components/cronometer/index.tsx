@@ -18,13 +18,23 @@ export default function Cronometer({ selected }: Props) {
         }
     }, [selected]);
 
+    function regressive(counter: number = 0) {
+        setTimeout(() => {
+            if (counter > 0) {
+                const newCounter = counter - 1;
+                setTime(newCounter);
+                regressive(newCounter);
+            }
+        }, 1000);
+    }
+
     return (
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha um card e inicie o cronometro</p>
             <div className={style.relogioWrapper}>
                 <Watch time={time}/>
             </div>
-            <Button texto="Começar!" />
+            <Button texto="Começar!" onClick={()=> regressive(time)} />
         </div>
     );
 }
