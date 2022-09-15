@@ -6,10 +6,11 @@ import ITask from '../../types/Task';
 import { useEffect, useState } from 'react';
 
 interface Props {
-    selected: ITask | undefined
+    selected: ITask | undefined,
+    finishTask: () => void
 }
 
-export default function Cronometer({ selected }: Props) {
+export default function Cronometer({ selected, finishTask }: Props) {
     const [time, setTime] = useState<number>();
 
     useEffect(() => {
@@ -23,8 +24,9 @@ export default function Cronometer({ selected }: Props) {
             if (counter > 0) {
                 const newCounter = counter - 1;
                 setTime(newCounter);
-                regressive(newCounter);
+                return regressive(newCounter);;
             }
+            finishTask();
         }, 1000);
     }
 
